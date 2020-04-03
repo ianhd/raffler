@@ -1,0 +1,152 @@
+.mobile {
+  display: none;
+}
+.noUnderline {
+  text-decoration: none !important;
+}
+.group:after {
+  visibility: hidden;
+  display: block;
+  content: "";
+  clear: both;
+  height: 0;
+}
+[ng\:cloak],
+[ng-cloak],
+[data-ng-cloak],
+[x-ng-cloak],
+.ng-cloak,
+.x-ng-cloak {
+  display: none !important;
+}
+body {
+  padding: 30px;
+}
+table {
+  margin-top: 30px;
+}
+table tbody tr td {
+  vertical-align: middle !important;
+}
+table input[ng-model='item.totalCount'] {
+  display: inline-block;
+  width: 80px !important;
+  text-align: center;
+}
+input[ng-model='newName'] {
+  width: 335px !important;
+  display: inline-block;
+  float: left;
+}
+.text-on-right {
+  margin-right: 10px;
+}
+.clear {
+  display: inline-block;
+  margin-left: 10px;
+  margin-right: 30px;
+}
+.winner {
+  display: inline-block;
+  margin-top: 10px;
+}
+td.totalCount .btn {
+  float: left;
+}
+td.totalCount input {
+  float: left;
+}
+.btn:not(.btn-primary):focus,
+.btn:not(.btn-primary):hover,
+.btn:not(.btn-primary).focus {
+  color: inherit !important;
+}
+.btn[disabled='disabled'] {
+  opacity: 0.2;
+  cursor: default;
+}
+header .content {
+  width: 401px;
+  margin: 0 auto;
+}
+header .content .logoContainer {
+  text-align: center;
+  height: 115px;
+}
+header .content .logoContainer .logo {
+  display: inline-block;
+  margin: 0 auto;
+}
+header .content .logoContainer .logo img {
+  display: block;
+  height: 85px;
+  margin-bottom: 30px;
+}
+header .fa-bars {
+  font-size: 26px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+@media (max-width: 767px) {
+  .noMobile {
+    display: none;
+  }
+  .mobile {
+    display: block;
+  }
+  body {
+    padding: 20px;
+  }
+  header .content {
+    width: auto;
+  }
+  header .content input[ng-model='newName'] {
+    width: calc(100% - 66px) !important;
+  }
+  .winnerContainer {
+    margin-top: 20px;
+  }
+  .winnerContainer .clear {
+    margin-right: 20px;
+  }
+  table {
+    margin-top: 20px;
+  }
+  table input[ng-model='item.totalCount'] {
+    width: 60px !important;
+  }
+  table a.remove {
+    text-decoration: none !important;
+  }
+  table a.remove i {
+    font-size: 24px;
+  }
+  table tr {
+    border-top: 1px solid #dddddd;
+  }
+  table thead {
+    display: none;
+  }
+  table td {
+    display: block;
+    clear: left;
+    border-top: none !important;
+  }
+  table td[data-th]:before {
+    content: attr(data-th);
+    float: left;
+    text-transform: uppercase;
+    font-weight: bold;
+    width: 100px;
+  }
+  table td[data-th].paddingTopSm:before {
+    padding-top: 10px;
+  }
+  table .close {
+    width: 24px;
+    height: 24px;
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAA+0lEQVRIS62W0Q3CMAxEXzdgE9gA2AA2gUlgE7oBsAFswgjoKiJZxUncNvmM2nuNcz63AzbABTgCH9qsFXADzh3wALbAC9g3gEj8/vvwpwDaEGTdAGLF38BOAK0WkD9xVSMBlkJccYlawFxIVtwDTIUUxXOAKKQqXgLUICHxGiAH0X7y+WDFUu+ML9nr47GF9Yy6vyoeOUECWoj2QuJTAaksei8cK9ES2ZoLEI6VGsBziwDh7CoBSlYMZ1cOEPF5COIBIuKeu9yL98Iu3ESRqB/H9VTx6knswJkrXoSkkblUPAuxQz/c/pUfD+uuYegruK7AocEfhT1JD5y+mdN6GcCVgIsAAAAASUVORK5CYII=');
+    display: inline-block;
+  }
+}

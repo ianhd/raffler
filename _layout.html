@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <!--^_head.html^-->
+</head>
+    
+<body ng-controller="MainCtrl">
+    <script>
+        if (!String.prototype.contains) {
+            String.prototype.contains = function() {
+                'use strict';
+                return String.prototype.indexOf.apply(this, arguments) !== -1;
+            };
+        }    
+
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','http://www.google-analytics.com/analytics.js','ga');
+
+        var url = document.URL;
+        var noga = "noga";
+        if (url.contains("set" + noga)) {
+            localStorage.setItem(noga, "true");
+        }
+        if (url.contains("clear" + noga)) {
+            localStorage.removeItem(noga);
+        }
+
+        var noGoogleAnalytics = url.contains(noga)
+            || localStorage.getItem(noga)
+            || url.contains("localhost");
+
+        if (noGoogleAnalytics) {
+            console.debug("Not tracking Google Analytics.");
+        } else {
+            console.debug("Tracking Google Analytics.");
+            ga('create', 'UA-69910508-1', 'auto');
+            ga('send', 'pageview');      
+        }
+    </script>    
+    <header>
+        <div class="content">
+            <div class="logoContainer">
+                <a class="logo" href="/"><img src="Content/the-raffler_logo.jpg" /></a>
+            </div>
+            <input class="form-control ng-cloak" placeholder="Enter a name for the raffle" ng-model="newName" ng-enter="add()" autofocus />
+            <button class="btn btn-primary ng-cloak" ng-disabled="!newName" ng-click="add()">Add</button>
+        </div>
+        <i style="display:none;" class="fa fa-bars"></i>
+    </header>
+    
+    <div class="winnerContainer ng-cloak group">
+        <button class="btn btn-primary pull-right" ng-click="pickAWinner()" ng-show="displayedItems.length">
+            <i class="fa fa-refresh text-on-right"></i>Pick a Winner!
+        </button>        
+        <div class="winner pull-right" ng-show="winner">
+            <b>{{winner}}</b><a href="#" class="clear" ng-click="clearWinner($event)">Clear</a>
+        </div>         
+    </div>
+    
+    <table ng-show="displayedItems.length" st-table="displayedItems" st-safe-src="rawItems" class="table table-striped ng-cloak">
+        <thead>
+        <tr>
+            <td>Name</td>
+            <td># Raffles</td>
+            <td><a href="#" ng-click="removeAll($event)">Remove&nbsp;all</a></td>
+        </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="item in displayedItems">
+                <td data-th="Name">{{item.name}}</td>
+                <td data-th="# Raffles" class="totalCount group paddingTopSm">
+                    <button class="btn" ng-disabled="item.totalCount <= 1" ng-click="incrOrDecr($event,$index,'decr')"><i class="fa fa-minus"></i></button>
+                    <input class="form-control" ng-model="item.totalCount" />
+                    <button class="btn" ng-click="incrOrDecr($event,$index,'incr')"><i class="fa fa-plus"></i></button>
+                </td>
+                <td data-th="">
+                    <a href="#" class="remove" ng-click="remove($event,$index)">Remove</a>
+                </td>
+            </tr>
+        </tbody>      
+    </table>
+
+    <!--^_beforeEndBody.html^-->  
+</body>
+</html>

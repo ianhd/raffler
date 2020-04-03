@@ -1,0 +1,118 @@
+@bufferMini: 5px;
+@bufferSm: 10px;
+@bufferSmMd: 15px;
+@bufferMd: 20px;
+@bufferMdLg: 25px;
+@bufferLg: 30px;
+
+.mobile { display:none; }
+.noUnderline { text-decoration: none !important; }
+
+.group:after { visibility: hidden; display: block; content: ""; clear: both; height: 0; }
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
+body { padding: @bufferLg; }
+table { margin-top:@bufferLg; 
+    tbody tr td { vertical-align: middle !important; }
+    input[ng-model='item.totalCount'] {
+        display:inline-block;
+        width: 80px !important;
+        text-align: center;
+    }
+}
+input[ng-model='newName'] { 
+    width: 335px !important; 
+    display:inline-block;
+    float:left;
+}
+.text-on-right { margin-right: 10px; }
+
+.clear { display:inline-block; margin-left: @bufferSm; margin-right: @bufferLg; }
+.winner { display:inline-block; margin-top: @bufferSm; }
+
+td.totalCount { 
+    .btn { float: left; }
+    input { float: left; }
+}
+
+.btn:not(.btn-primary):focus,.btn:not(.btn-primary):hover,.btn:not(.btn-primary).focus {
+    color: inherit !important; 
+} 
+.btn[disabled='disabled'] { opacity: 0.2; cursor: default; } 
+
+header {
+    .content {
+        width: 401px; margin: 0 auto;
+        .logoContainer { text-align: center; height: 115px; // not sure why I have to set a height.
+            .logo { display:inline-block; margin: 0 auto;
+                img {
+                    display:block; height: 85px; margin-bottom: @bufferLg;
+                }
+            }            
+        }
+    }
+    .fa-bars { font-size: 26px; position: absolute; top: 20px; right: 20px; }
+}
+
+// ****************
+// Mobile
+@media (max-width: 767px) {
+    .noMobile { display:none; }
+    .mobile { display:block; }
+    body { padding: @bufferMd; }
+    header {
+        .content { width: auto; 
+            input[ng-model='newName'] {
+                width: ~"calc(100% - 66px) !important"; 
+            }
+        }
+    }
+    .winnerContainer {
+        margin-top: @bufferMd;
+        .clear { 
+            margin-right: @bufferMd;
+        }
+    }
+    table { margin-top: @bufferMd; 
+        input[ng-model='item.totalCount'] {
+            width: 60px !important;
+        }
+        a.remove { text-decoration:none !important;
+            i { font-size: 24px; }
+        }
+        
+        tr { border-top: 1px solid #dddddd; }
+        thead { display: none; }
+        td { display:block; clear:left; border-top: none !important; }
+        td[data-th]:before { 
+            content: attr(data-th);
+            float: left;
+            text-transform: uppercase;
+            font-weight: bold;
+            width: 100px;
+        }
+        td[data-th].paddingTopSm:before {
+            padding-top: @bufferSm;
+        }
+        
+                                    .close {
+                                    width:            24px;
+                                    height:           24px;
+                                    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAA+0lEQVRIS62W0Q3CMAxEXzdgE9gA2AA2gUlgE7oBsAFswgjoKiJZxUncNvmM2nuNcz63AzbABTgCH9qsFXADzh3wALbAC9g3gEj8/vvwpwDaEGTdAGLF38BOAK0WkD9xVSMBlkJccYlawFxIVtwDTIUUxXOAKKQqXgLUICHxGiAH0X7y+WDFUu+ML9nr47GF9Yy6vyoeOUECWoj2QuJTAaksei8cK9ES2ZoLEI6VGsBziwDh7CoBSlYMZ1cOEPF5COIBIuKeu9yL98Iu3ESRqB/H9VTx6knswJkrXoSkkblUPAuxQz/c/pUfD+uuYegruK7AocEfhT1JD5y+mdN6GcCVgIsAAAAASUVORK5CYII=');
+                                    display:inline-block;
+                                    }
+    }
+}
+
+// ****************
+// Tablet
+@media (min-width: 768px) and (max-width: 991px) {
+}
+    
+// ****************
+// Desktop
+@media (min-width: 992px) {
+}
