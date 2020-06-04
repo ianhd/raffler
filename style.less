@@ -44,6 +44,7 @@ td.totalCount {
 .btn[disabled='disabled'] { opacity: 0.2; cursor: default; } 
 
 header {
+    .support { float:right; }
     .content {
         width: 401px; margin: 0 auto;
         .logoContainer { text-align: center; height: 115px; // not sure why I have to set a height.
@@ -64,6 +65,7 @@ header {
     .mobile { display:block; }
     body { padding: @bufferMd; }
     header {
+        .support { display:block; margin-bottom: @bufferMd; float:none; text-align:center; }
         .content { width: auto; 
             input[ng-model='newName'] {
                 width: ~"calc(100% - 66px) !important"; 

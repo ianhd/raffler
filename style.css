@@ -65,6 +65,9 @@ td.totalCount input {
   opacity: 0.2;
   cursor: default;
 }
+header .support {
+  float: right;
+}
 header .content {
   width: 401px;
   margin: 0 auto;
@@ -97,6 +100,12 @@ header .fa-bars {
   }
   body {
     padding: 20px;
+  }
+  header .support {
+    display: block;
+    margin-bottom: 20px;
+    float: none;
+    text-align: center;
   }
   header .content {
     width: auto;
